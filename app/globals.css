@@ -1,0 +1,570 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 210 11% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 11% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 11% 15%;
+  --primary: 120 39% 30%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 20% 98%;
+  --secondary-foreground: 210 11% 15%;
+  --muted: 210 20% 98%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 15 70% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 120 39% 30%;
+  --chart-1: 120 39% 30%;
+  --chart-2: 15 70% 50%;
+  --chart-3: 120 39% 20%;
+  --chart-4: 120 39% 45%;
+  --chart-5: 15 70% 60%;
+  --radius: 0.625rem;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 210 11% 15%;
+  --sidebar-primary: 120 39% 30%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 20% 98%;
+  --sidebar-accent-foreground: 210 11% 15%;
+  --sidebar-border: 214 32% 91%;
+  --sidebar-ring: 120 39% 30%;
+}
+
+.dark {
+  --background: 210 11% 15%;
+  --foreground: 0 0% 100%;
+  --card: 210 11% 15%;
+  --card-foreground: 0 0% 100%;
+  --popover: 210 11% 15%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 120 39% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 16% 47%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 215 16% 47%;
+  --muted-foreground: 214 32% 91%;
+  --accent: 15 70% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 215 16% 47%;
+  --input: 215 16% 47%;
+  --ring: 120 39% 45%;
+  --chart-1: 120 39% 45%;
+  --chart-2: 15 70% 60%;
+  --chart-3: 120 39% 30%;
+  --chart-4: 120 39% 20%;
+  --chart-5: 15 70% 50%;
+  --sidebar: 210 11% 15%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 120 39% 45%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 215 16% 47%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 215 16% 47%;
+  --sidebar-ring: 120 39% 45%;
+}
+
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Enhanced animations and effects for the education platform */
+/* Enhanced animations for sophisticated motion design system */
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes flyPlane {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes parallaxFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(3px);
+  }
+}
+
+@keyframes staggeredFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes counterUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradientSweep {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-draw-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-in-out forwards;
+}
+
+.animate-fly-plane {
+  animation: flyPlane 4s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+.animate-parallax-float {
+  animation: parallaxFloat 8s ease-in-out infinite;
+}
+
+.animate-staggered-fade-in {
+  opacity: 0;
+  animation: staggeredFadeIn 0.8s ease-out forwards;
+}
+
+.animate-counter-up {
+  animation: counterUp 1s ease-out forwards;
+}
+
+.btn-gradient-sweep {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: gradientSweep 2s ease-in-out;
+}
+
+.animate-float {
+  animation: parallaxFloat 6s ease-in-out infinite;
+}
+
+.animate-count-up {
+  animation: countUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: staggeredFadeIn 0.8s ease-out forwards;
+}
+
+/* Added scroll animation for footer university logos */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #2D722C 0%, #1F4D1E 50%, #5E945D 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+}
+
+/* Card hover effects */
+/* Sophisticated hover effects for premium feel */
+.card-lift {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-lift:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(45, 114, 44, 0.15);
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #2D722C, #D2542B, #2D722C);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 3s ease-in-out infinite;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(45, 114, 44, 0.15); /* Updated shadow to Primary Green */
+}
+
+/* Interactive tab underline animation */
+/* Professional microinteractions */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #2D722C; /* Primary Green */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-press {
+  transition: all 0.1s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+.tab-underline {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #2D722C; /* Primary Green */
+  transition: width 0.3s ease;
+}
+
+.tab-underline.active::after {
+  width: 100%;
+}
+
+/* Scroll-triggered animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced scroll animations for better user experience */
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.scroll-animate-left.in-view,
+.scroll-animate-right.in-view,
+.scroll-animate-scale.in-view {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Enhanced button hover effects */
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-hover:hover::before {
+  left: 100%;
+}
+
+/* Improved focus states for accessibility */
+.focus-visible:focus-visible {
+  outline: 2px solid #2D722C; /* Primary Green */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Enhanced loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, oklch(0.97 0 0) 25%, oklch(0.95 0 0) 50%, oklch(0.97 0 0) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Enhanced page transitions and choreographed animations */
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes pageSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.98);
+  }
+}
+
+@keyframes choreographedEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonLift {
+  from {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  to {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes cardGlow {
+  0%,
+  100% {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(45, 114, 44, 0.15); /* Primary Green glow */
+  }
+}
+
+/* Page transition classes */
+.page-transition {
+  animation: pageSlideOut 0.15s ease-in forwards;
+}
+
+.page-enter {
+  animation: pageSlideIn 0.3s ease-out forwards;
+}
+
+/* Enhanced staggered animations */
+.scroll-animate-staggered > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-animate-staggered > *.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced button interactions with more sophisticated effects */
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-hover:hover {
+  animation: buttonLift 0.3s ease-out forwards;
+}
+
+.btn-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-hover:hover::before {
+  left: 100%;
+}
+
+/* Enhanced card interactions with glow effects */
+.card-lift {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-lift:hover {
+  transform: translateY(-12px) scale(1.02);
+  animation: cardGlow 2s ease-in-out infinite;
+}
+
+/* Microinteraction feedback */
+.btn-press {
+  transition: all 0.1s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+.btn-press:focus-visible {
+  outline: 2px solid oklch(0.45 0.18 150); /* Action Green for focus */
+  outline-offset: 2px;
+}
+
+/* Enhanced choreographed entrance */
+.choreographed-entrance {
+  opacity: 0;
+  animation: choreographedEntrance 0.8s ease-out forwards;
+}
+
+.choreographed-entrance:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.choreographed-entrance:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.choreographed-entrance:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.choreographed-entrance:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.choreographed-entrance:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Added smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced selection styling */
+::selection {
+  background: rgba(45, 114, 44, 0.2);
+  color: #2D722C;
+}
+
+::-moz-selection {
+  background: rgba(45, 114, 44, 0.2);
+  color: #2D722C;
+}
+
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 40s linear infinite;
+}

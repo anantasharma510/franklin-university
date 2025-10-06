@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { NoticeBar } from "@/components/notice-bar"
 import { Hero } from "@/components/hero-with-image-text-and-two-buttons"
+import { ExclusivePartners } from "@/components/exclusive-partners"
 import { TrustSignals } from "@/components/trust-signals"
 import { PlatformSolutions } from "@/components/core-values"
 import { DestinationsShowcase } from "@/components/destinations-showcase"
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Navigation />
       <NoticeBar />
       <Hero />
+      <ExclusivePartners />
       <TrustSignals />
       <PlatformSolutions />
       <BentoGridGalleryDemo />

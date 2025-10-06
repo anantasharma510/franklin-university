@@ -31,21 +31,29 @@ export const ShuffleHero = () => {
   );
 };
 
-const shuffle = (array: (typeof squareData)[0][]) => {
-  let currentIndex = array.length,
-    randomIndex;
+const shuffle = (array: (typeof squareData)[0][], seed: number = 0) => {
+  // Use a deterministic shuffle based on seed to avoid hydration mismatches
+  const shuffled = [...array];
+  let currentIndex = shuffled.length;
+
+  // Use seed-based pseudo-random number generator
+  let seedValue = seed;
+  const seededRandom = () => {
+    seedValue = (seedValue * 9301 + 49297) % 233280;
+    return seedValue / 233280;
+  };
 
   while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
+    const randomIndex = Math.floor(seededRandom() * currentIndex);
     currentIndex--;
 
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
+    [shuffled[currentIndex], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[currentIndex],
     ];
   }
 
-  return array;
+  return shuffled;
 };
 
 const squareData = [
@@ -115,8 +123,8 @@ const squareData = [
   },
 ];
 
-const generateSquares = () => {
-  return shuffle(squareData).map((sq) => (
+const generateSquares = (seed: number = 0) => {
+  return shuffle(squareData, seed).map((sq) => (
     <motion.div
       key={sq.id}
       layout
@@ -133,10 +141,21 @@ const generateSquares = () => {
 
 const ShuffleGrid = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [squares, setSquares] = useState(generateSquares());
+  const [squares, setSquares] = useState<React.ReactNode[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    shuffleSquares();
+    setIsMounted(true);
+    // Initial shuffle with a fixed seed for consistency
+    setSquares(generateSquares(12345));
+    
+    const shuffleSquares = () => {
+      const newSeed = Math.floor(Math.random() * 1000000);
+      setSquares(generateSquares(newSeed));
+      timeoutRef.current = setTimeout(shuffleSquares, 3000);
+    };
+
+    timeoutRef.current = setTimeout(shuffleSquares, 3000);
 
     return () => {
       if (timeoutRef.current) {
@@ -145,11 +164,24 @@ const ShuffleGrid = () => {
     };
   }, []);
 
-  const shuffleSquares = () => {
-    setSquares(generateSquares());
-
-    timeoutRef.current = setTimeout(shuffleSquares, 3000);
-  };
+  // Don't render until mounted to avoid hydration mismatch
+  if (!isMounted) {
+    return (
+      <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+        {squareData.map((sq) => (
+          <div
+            key={sq.id}
+            className="w-full h-full rounded-md overflow-hidden bg-muted"
+            style={{
+              backgroundImage: `url(${sq.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">

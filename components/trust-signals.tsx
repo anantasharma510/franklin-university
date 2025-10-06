@@ -54,6 +54,42 @@ export function TrustSignals() {
     { name: "University of South Wales", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "southwales.ac.uk" },
   ]
 
+  const firstRow = partnerLogos.slice(0, 12)
+  const secondRow = partnerLogos.slice(12)
+
+  function ScrollingRow({ logos, offset = false }: { logos: typeof partnerLogos; offset?: boolean }) {
+    const duplicatedLogos = [...logos, ...logos, ...logos]
+
+    return (
+      <div className="relative py-6 overflow-hidden">
+        <div
+          className="flex gap-24 animate-scroll-left"
+          style={{
+            width: 'max-content',
+            marginLeft: offset ? '-24rem' : '0'
+          }}
+        >
+          {duplicatedLogos.map((partner, index) => (
+            <a
+              key={index}
+              href={`https://${partner.website}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 flex items-center justify-center w-[200px]"
+              title={partner.name}
+            >
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="object-contain w-auto h-24"
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   const certifications = [
     {
       icon: Shield,
@@ -73,11 +109,11 @@ export function TrustSignals() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-background via-secondary/30 to-background relative overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 overflow-hidden bg-gradient-to-b from-background via-secondary/30 to-background">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
+      <div className="relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="mb-20 text-center">
           <div
             className={`inline-block mb-4 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
             style={{ animationDelay: "0.1s" }}
@@ -105,39 +141,9 @@ export function TrustSignals() {
           className={`relative mb-20 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
           style={{ animationDelay: "0.4s" }}
         >
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
-
-          <div className="overflow-hidden py-8">
-            <div className="flex animate-scroll">
-              {[...partnerLogos, ...partnerLogos].map((partner, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 mx-6"
-                  style={{ minWidth: "280px" }}
-                >
-                  <a
-                    href={`https://${partner.website}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/50 hover:border-primary/50 hover:bg-card transition-all duration-300 group flex flex-col items-center justify-center min-h-[180px] cursor-pointer hover:shadow-lg">
-                      <Image
-                        src={partner.logo}
-                        alt={partner.name}
-                        width={160}
-                        height={80}
-                        className="max-h-16 w-auto object-contain transition-all duration-300 mb-4 rounded-xl"
-                      />
-                      <p className="text-sm font-semibold text-foreground text-center leading-tight group-hover:text-primary transition-colors duration-300">
-                        {partner.name}
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              ))}
-            </div>
+          <div className="space-y-8">
+            <ScrollingRow logos={firstRow} />
+            <ScrollingRow logos={secondRow} offset={true} />
           </div>
         </div>
 
@@ -150,16 +156,16 @@ export function TrustSignals() {
             return (
               <div
                 key={index}
-                className="group relative"
+                className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:opacity-100"></div>
+                <div className="relative h-full p-8 transition-all duration-300 border bg-card border-border rounded-2xl hover:border-primary/50">
+                  <div className="flex flex-col items-center space-y-4 text-center">
+                    <div className="flex items-center justify-center transition-transform duration-300 w-14 h-14 rounded-xl bg-primary/10 group-hover:scale-110">
                       <Icon className="w-7 h-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-1">
+                      <h3 className="mb-1 text-lg font-semibold text-foreground">
                         {cert.title}
                       </h3>
                       <p className="text-sm text-muted-foreground">

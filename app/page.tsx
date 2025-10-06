@@ -4,6 +4,7 @@ import { Hero } from "@/components/hero-with-image-text-and-two-buttons"
 import { ExclusivePartners } from "@/components/exclusive-partners"
 import { TrustSignals } from "@/components/trust-signals"
 import { PlatformSolutions } from "@/components/core-values"
+import WebinarsAndEvents from "@/components/webinars-and-events"
 import { DestinationsShowcase } from "@/components/destinations-showcase"
 import { Feature108 } from "@/components/blocks/shadcnblocks-com-feature108"
 import { TestimonialsSlider } from "@/components/testimonials-slider"
@@ -21,6 +22,7 @@ export default function HomePage() {
       <ExclusivePartners />
       <TrustSignals />
       <PlatformSolutions />
+      <WebinarsAndEvents />
       <BentoGridGalleryDemo />
       <DestinationsShowcase />
       <Feature108 />

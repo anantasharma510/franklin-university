@@ -568,3 +568,12 @@ html {
 .animate-infinite-scroll {
   animation: infinite-scroll 40s linear infinite;
 }
+
+@keyframes scroll-left {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100vw); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 60s linear infinite;
+}

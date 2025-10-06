@@ -16,11 +16,7 @@ const partners = [
     logoUrl: 'https://www.uwl.ac.uk/themes/uwl/assets/images/UWL-logo.svg', // Official UWL logo
     websiteUrl: 'https://www.uwl.ac.uk/',
   },
-  {
-    name: 'University of Roehampton',
-    logoUrl: 'https://www.roehampton.ac.uk/globalassets/images/branding/roehampton-logo.svg', // Updated official Roehampton logo
-    websiteUrl: 'https://www.roehampton.ac.uk/',
-  },
+ 
 ];
 
 // --- Main Component ---
@@ -30,33 +26,33 @@ export const ExclusivePartners = () => {
       <h2 className="mb-12 text-4xl font-semibold text-foreground">
         Our Exclusive University Partners
       </h2>
-      <div className="grid max-w-6xl grid-cols-1 gap-10 mx-auto md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
         {partners.map((partner) => (
           <div 
             key={partner.name}
-            className="flex flex-col items-center justify-between p-10 transition-all duration-300 border rounded-lg shadow-sm bg-card hover:-translate-y-2 hover:shadow-lg border-border/50"
+            className="flex flex-col items-center justify-between p-16 transition-all duration-300 border rounded-xl shadow-lg bg-card hover:-translate-y-2 hover:shadow-xl border-border/50 w-96 min-h-[28rem]"
           >
-            <div className="flex items-center h-20 mb-6">
+            <div className="flex items-center justify-center h-32 mb-10 w-full">
               <Image 
                 src={partner.logoUrl} 
                 alt={`${partner.name} logo`}
-                width={176}
-                height={60}
-                className="object-contain max-w-44 max-h-15"
+                width={240}
+                height={100}
+                className="object-contain max-w-56 max-h-24"
                 onError={(e) => {
                   // Fallback for broken logo URLs
                   e.currentTarget.src = '/placeholder-logo.svg';
                 }}
               />
             </div>
-            <h3 className="my-5 text-xl font-medium text-card-foreground">
+            <h3 className="mb-10 text-3xl font-bold text-card-foreground text-center">
               {partner.name}
             </h3>
             <a 
               href={partner.websiteUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 font-semibold transition-all duration-300 rounded-md shadow-sm bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md"
+              className="inline-block px-10 py-5 text-xl font-bold transition-all duration-300 rounded-lg shadow-lg bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl"
             >
               Visit Website
             </a>

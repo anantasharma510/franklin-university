@@ -5,6 +5,7 @@ import { ExclusivePartners } from "@/components/exclusive-partners"
 import { TrustSignals } from "@/components/trust-signals"
 import { PlatformSolutions } from "@/components/core-values"
 import WebinarsAndEvents from "@/components/webinars-and-events"
+import NewsSection from "@/components/news-section"
 import { DestinationsShowcase } from "@/components/destinations-showcase"
 import { Feature108 } from "@/components/blocks/shadcnblocks-com-feature108"
 import { TestimonialsSlider } from "@/components/testimonials-slider"
@@ -23,6 +24,7 @@ export default function HomePage() {
       <TrustSignals />
       <PlatformSolutions />
       <WebinarsAndEvents />
+      <NewsSection />
       <BentoGridGalleryDemo />
       <DestinationsShowcase />
       <Feature108 />

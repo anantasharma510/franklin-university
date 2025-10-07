@@ -196,19 +196,19 @@ export function EnhancedFooter() {
           {/* Exclusive Partners */}
           <div className="mb-12">
             <h3 className="mb-6 text-xl font-semibold text-center text-primary">Our Exclusive University Partners</h3>
-            <div className="flex justify-center gap-8 max-w-2xl mx-auto">
+            <div className="flex justify-center gap-8 max-w-4xl mx-auto">
               {exclusivePartners.map((partner, i) => (
                 <a
                   key={`${partner.name}-${i}`}
                   href={partner.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background/5 rounded-lg h-24 flex items-center justify-center border-2 border-accent/50 shadow-[0_0_15px_rgba(15,70%,50%,0.2)] p-4 w-48 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-accent/70"
+                  className="bg-white rounded-xl h-32 flex items-center justify-center border-2 border-accent/50 shadow-[0_0_20px_rgba(15,70%,50%,0.3)] p-6 w-64 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-accent/70"
                 >
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="object-contain w-auto transition-opacity max-h-16 opacity-70 hover:opacity-100"
+                    className="object-contain w-auto transition-opacity max-h-20 opacity-90 hover:opacity-100"
                   />
                 </a>
               ))}

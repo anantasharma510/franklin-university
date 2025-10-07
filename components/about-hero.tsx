@@ -20,7 +20,7 @@ export function AboutHero() {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-green-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(156,146,172,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
@@ -42,7 +42,7 @@ export function AboutHero() {
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
                 Empowering Global
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600">
                   Education Dreams
                 </span>
               </h1>
@@ -78,14 +78,14 @@ export function AboutHero() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="group relative p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1"
+                className="group relative p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex flex-col items-center text-center space-y-3">
-                  <div className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white group-hover:scale-110 transition-transform duration-300">
                     <stat.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-foreground group-hover:text-blue-600 transition-colors">
+                    <div className="text-3xl font-bold text-foreground group-hover:text-green-600 transition-colors">
                       {stat.value}
                     </div>
                     <div className="text-sm text-muted-foreground font-medium">
@@ -95,7 +95,7 @@ export function AboutHero() {
                 </div>
                 
                 {/* Hover Effect Background */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>
@@ -121,8 +121,8 @@ export function AboutHero() {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
     </section>
   )
 }

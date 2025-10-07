@@ -38,6 +38,14 @@ export function Navigation() {
       link: "/blog",
     },
     {
+      name: "Events",
+      link: "/events",
+    },
+    {
+      name: "News",
+      link: "/news",
+    },
+    {
       name: "Contact",
       link: "/contact",
     },

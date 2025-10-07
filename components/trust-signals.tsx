@@ -94,7 +94,6 @@ export function TrustSignals() {
               key={index}
               onClick={() => handleLogoClick(partner.website)}
               className="flex-shrink-0 flex items-center justify-center w-[200px] cursor-pointer transition-all duration-300 hover:scale-110 hover:opacity-90 group relative"
-              title={`Click to visit ${partner.name} website`}
             >
               <div className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <img
@@ -102,9 +101,6 @@ export function TrustSignals() {
                 alt={partner.name}
                 className="object-contain w-auto h-24 relative z-10 transition-all duration-300 group-hover:brightness-110"
               />
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                Click to visit website
-              </div>
             </div>
           ))}
         </div>

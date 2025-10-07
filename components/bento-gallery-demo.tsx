@@ -38,7 +38,7 @@ const mediaItems = [
     type: "image",
     title: "International Students",
     desc: "Diverse learning community",
-    url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
   },
   {

@@ -6,6 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Send, Users, Globe, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 
+// Static data to prevent hydration issues
+const exclusivePartners = [
+  { name: "Imperial College London", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Imperial_College_London_logo.svg/1200px-Imperial_College_London_logo.svg.png" },
+  { name: "UCL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/UCL_logo.svg/1200px-UCL_logo.svg.png" }
+]
+
 export function EnhancedFooter() {
   const [email, setEmail] = useState("")
 
@@ -190,16 +196,11 @@ export function EnhancedFooter() {
           {/* Exclusive Partners */}
           <div className="mb-12">
             <h3 className="mb-6 text-xl font-semibold text-center text-primary">Our Exclusive University Partners</h3>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              {[
-                { name: "University of Oxford", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/University_of_Oxford_logo.svg/1200px-University_of_Oxford_logo.svg.png" },
-                { name: "University of Cambridge", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Cambridge_logo.svg/1200px-University_of_Cambridge_logo.svg.png" },
-                { name: "Imperial College London", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Imperial_College_London_logo.svg/1200px-Imperial_College_London_logo.svg.png" },
-                { name: "UCL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/UCL_logo.svg/1200px-UCL_logo.svg.png" }
-              ].map((partner, i) => (
+            <div className="flex justify-center gap-8 max-w-2xl mx-auto">
+              {exclusivePartners.map((partner, i) => (
                 <div
-                  key={i}
-                  className="bg-background/5 rounded-lg h-24 flex items-center justify-center border-2 border-accent/50 shadow-[0_0_15px_rgba(15,70%,50%,0.2)] p-4"
+                  key={`${partner.name}-${i}`}
+                  className="bg-background/5 rounded-lg h-24 flex items-center justify-center border-2 border-accent/50 shadow-[0_0_15px_rgba(15,70%,50%,0.2)] p-4 w-48"
                 >
                   <img
                     src={partner.logo}

@@ -22,7 +22,7 @@ export function EnhancedFooter() {
   }
 
   return (
-    <footer className="bg-foreground text-primary-foreground">
+    <footer className="text-white" style={{ backgroundColor: '#0F172A' }}>
       {/* Part 1: Newsletter Signup */}
       <div className="border-b border-border">
         <div className="container px-4 py-12 mx-auto md:py-16">

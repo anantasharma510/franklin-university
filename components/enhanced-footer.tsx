@@ -23,34 +23,6 @@ export function EnhancedFooter() {
 
   return (
     <footer className="text-white" style={{ backgroundColor: '#0F172A' }}>
-      {/* Part 1: Newsletter Signup */}
-      <div className="border-b border-border">
-        <div className="container px-4 py-12 mx-auto md:py-16">
-          <div className="max-w-3xl mx-auto mb-8 text-center">
-            <h2 className="mb-3 text-2xl font-bold text-primary-foreground md:text-3xl text-balance">
-              Stay Connected with THE OFFICIALS
-            </h2>
-            <p className="text-primary-foreground/80 text-pretty">
-              Get exclusive insights on global education trends, university partnerships, and recruitment opportunities.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubscribe} className="flex max-w-xl gap-3 mx-auto">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="text-primary-foreground bg-background/10 border-border placeholder:text-primary-foreground/50 focus-visible:ring-primary"
-              required
-            />
-            <Button type="submit" className="gap-2 px-6 bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Send className="w-4 h-4" />
-              Subscribe
-            </Button>
-          </form>
-        </div>
-      </div>
 
       {/* Quick Links and Offices */}
       <div className="border-b border-border">

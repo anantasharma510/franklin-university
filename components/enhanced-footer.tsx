@@ -7,7 +7,10 @@ import { Input } from "@/components/ui/input"
 import { Send, Users, Globe, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 
 // Static data to prevent hydration issues
-const exclusivePartners: Array<{ name: string; logo: string; website: string }> = []
+const exclusivePartners: Array<{ name: string; logo: string; website: string }> = [
+  { name: "BPP University", logo: "/bpp logo.png", website: "https://www.bpp.com/about-bpp/bpp-university" },
+  { name: "University of West London", logo: "/westlondon.png", website: "https://www.uwl.ac.uk/" }
+]
 
 export function EnhancedFooter() {
   const [email, setEmail] = useState("")

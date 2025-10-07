@@ -76,54 +76,49 @@ const blogPosts = [
 
 export function BlogGrid() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container px-4 mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
-            Latest Articles
+    <section className="py-16 bg-white">
+      <div className="container px-4 mx-auto max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            More Stories
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Stay informed with our latest insights, news, and updates from the world of international education.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <Card 
               key={post.id} 
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-border ${
-                post.featured ? 'md:col-span-2 lg:col-span-1' : ''
-              }`}
+              className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-gray-200 bg-white"
             >
               <CardHeader className="p-0">
-                <div className="aspect-video bg-gradient-to-r from-primary/10 to-accent/10 rounded-t-lg flex items-center justify-center">
+                <div className="aspect-video bg-gray-100 flex items-center justify-center">
                   <div className="text-center">
                     <Calendar className="w-12 h-12 text-primary mx-auto mb-2" />
-                    <h3 className="text-lg font-semibold text-foreground">Article Preview</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Article Preview</h3>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <Badge variant="secondary" className="bg-primary/10 text-primary">
+                  <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
                     {post.category}
                   </Badge>
                   {post.featured && (
-                    <Badge variant="default" className="bg-accent text-accent-foreground">
+                    <Badge variant="default" className="bg-primary text-white border-0">
                       Featured
                     </Badge>
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                   {post.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {post.excerpt}
                 </p>
                 
-                <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
@@ -142,7 +137,7 @@ export function BlogGrid() {
                 
                 <Button 
                   variant="ghost" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                  className="w-full text-gray-600 hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   Read More
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -153,7 +148,7 @@ export function BlogGrid() {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+          <Button variant="outline" size="lg" className="gap-2 border-gray-300 text-gray-700 hover:bg-primary hover:text-white hover:border-primary">
             Load More Articles
             <ArrowRight className="w-4 h-4" />
           </Button>

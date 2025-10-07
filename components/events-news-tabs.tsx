@@ -1,19 +1,18 @@
 "use client"
 
 import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Calendar, Newspaper } from "lucide-react"
 
 const categories = [
   { name: "All", count: 24, active: true },
-  { name: "Education", count: 8, active: false },
-  { name: "University News", count: 6, active: false },
-  { name: "Student Success", count: 5, active: false },
-  { name: "Partnerships", count: 3, active: false },
-  { name: "Events", count: 2, active: false }
+  { name: "Events", count: 12, active: false },
+  { name: "News", count: 8, active: false },
+  { name: "Workshops", count: 4, active: false }
 ]
 
-export function BlogCategories() {
+export function EventsNewsTabs() {
   const [activeCategory, setActiveCategory] = useState("All")
 
   return (
@@ -31,6 +30,8 @@ export function BlogCategories() {
                   : "border-gray-300 text-gray-700 hover:border-primary hover:text-primary bg-white"
               }`}
             >
+              {category.name === "Events" && <Calendar className="w-4 h-4" />}
+              {category.name === "News" && <Newspaper className="w-4 h-4" />}
               {category.name}
               <Badge 
                 variant="secondary" 

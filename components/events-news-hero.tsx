@@ -1,55 +1,50 @@
 "use client"
 
-import { Calendar, Clock, User, ArrowRight } from "lucide-react"
+import { Calendar, Newspaper, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
-export function BlogHero() {
+export function EventsNewsHero() {
   return (
     <section className="relative py-20 bg-white">
       <div className="px-4 mx-auto max-w-6xl sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-            Blog.
+            Events & News.
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Latest insights and updates from THE OFFICIALS on global education, university partnerships, 
-            and recruitment opportunities.
+            Stay updated with our latest events, workshops, and news from the world of international education.
           </p>
         </div>
 
-        {/* Featured Article - SR Holding Style */}
+        {/* Featured Content */}
         <div className="max-w-4xl mx-auto">
           <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
             <div className="aspect-video bg-gray-100 flex items-center justify-center">
               <div className="text-center">
                 <Calendar className="w-16 h-16 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900">Featured Article</h3>
+                <h3 className="text-xl font-semibold text-gray-900">Featured Event</h3>
               </div>
             </div>
             <div className="p-8">
               <div className="flex items-center gap-4 mb-4">
                 <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
-                  Education
+                  Education Fair
                 </Badge>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Clock className="w-4 h-4" />
-                  <span>5 min read</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <User className="w-4 h-4" />
-                  <span>THE OFFICIALS</span>
+                  <Calendar className="w-4 h-4" />
+                  <span>March 15, 2024</span>
                 </div>
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                The Future of International Education: Trends and Opportunities
+                UK University Fair 2024
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Discover the latest trends shaping international education and how universities 
-                are adapting to meet the evolving needs of global students.
+                Meet representatives from top UK universities, explore study opportunities, 
+                and get personalized guidance on your academic journey.
               </p>
               <Button className="gap-2 bg-primary hover:bg-primary/90 text-white border-0">
-                Read More
+                Register Now
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>

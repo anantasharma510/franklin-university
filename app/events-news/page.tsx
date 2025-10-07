@@ -3,8 +3,7 @@ import { EnhancedFooter } from "@/components/enhanced-footer"
 import { EventsNewsHero } from "@/components/events-news-hero"
 import { EventsNewsTabs } from "@/components/events-news-tabs"
 import { EventsGrid } from "@/components/events-grid"
-import { NewsSection } from "@/components/news-section"
-import { NewsletterSignup } from "@/components/newsletter-signup"
+import NewsSection from "@/components/news-section"
 
 export default function EventsNewsPage() {
   return (
@@ -14,7 +13,6 @@ export default function EventsNewsPage() {
       <EventsNewsTabs />
       <EventsGrid />
       <NewsSection />
-      <NewsletterSignup />
       <EnhancedFooter />
     </main>
   )

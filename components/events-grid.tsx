@@ -82,13 +82,13 @@ const events = [
 
 export function EventsGrid() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container px-4 mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Upcoming Events
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Join our events to learn more about study opportunities and connect with university representatives.
           </p>
         </div>
@@ -97,60 +97,60 @@ export function EventsGrid() {
           {events.map((event) => (
             <Card 
               key={event.id} 
-              className={`group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-border ${
-                event.featured ? 'md:col-span-2 lg:col-span-1' : ''
+              className={`group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border-0 bg-white/90 backdrop-blur-sm ${
+                event.featured ? 'md:col-span-2 lg:col-span-1 ring-2 ring-primary/20 shadow-lg' : ''
               }`}
             >
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-4">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-between mb-6">
                   <Badge 
                     variant="secondary" 
-                    className="bg-primary/10 text-primary"
+                    className="bg-gradient-to-r from-primary to-primary/80 text-white border-0 px-4 py-2 text-sm font-semibold"
                   >
                     {event.type}
                   </Badge>
                   {event.featured && (
-                    <Badge variant="default" className="bg-accent text-accent-foreground">
-                      Featured
+                    <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 px-4 py-2 text-sm font-bold animate-pulse">
+                      ⭐ Featured
                     </Badge>
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors leading-tight">
                   {event.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-8 leading-relaxed text-base">
                   {event.description}
                 </p>
                 
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4 text-primary" />
-                    <span>{new Date(event.date).toLocaleDateString('en-US', { 
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
+                    <Calendar className="w-5 h-5 text-primary" />
+                    <span className="font-medium">{new Date(event.date).toLocaleDateString('en-US', { 
                       weekday: 'long', 
                       year: 'numeric', 
                       month: 'long', 
                       day: 'numeric' 
                     })}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4 text-primary" />
-                    <span>{event.time}</span>
+                  <div className="flex items-center gap-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
+                    <Clock className="w-5 h-5 text-primary" />
+                    <span className="font-medium">{event.time}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    <span>{event.location}</span>
+                  <div className="flex items-center gap-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <span className="font-medium">{event.location}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <Users className="w-4 h-4 text-primary" />
-                    <span>{event.attendees} attendees</span>
+                  <div className="flex items-center gap-4 text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
+                    <Users className="w-5 h-5 text-primary" />
+                    <span className="font-medium">{event.attendees} attendees</span>
                   </div>
                 </div>
                 
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <Button 
-                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground group-hover:bg-primary/90 transition-all duration-300"
+                    className="flex-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105"
                   >
                     Register Now
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -158,7 +158,7 @@ export function EventsGrid() {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </Button>
@@ -168,10 +168,10 @@ export function EventsGrid() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+        <div className="text-center mt-16">
+          <Button variant="outline" size="lg" className="gap-3 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105">
             View All Events
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5" />
           </Button>
         </div>
       </div>

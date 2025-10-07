@@ -26,7 +26,6 @@ export function TrustSignals() {
   }, [])
 
   const partnerLogos = [
-    { name: "BPP University", logo: "/bpp logo.png", website: "https://www.bpp.com/about-bpp/bpp-university" },
     { name: "University of the West of Scotland (UWS)", logo: "/placeholder-logo.png", website: "https://www.uwslondon.ac.uk" },
     { name: "University of Roehampton", logo: "/3- University of Roehampton (1).png", website: "https://www.roehampton.ac.uk" },
     { name: "University of East London", logo: "/4 - University of East London.jpeg", website: "https://www.uel.ac.uk" },

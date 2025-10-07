@@ -34,6 +34,10 @@ export function Navigation() {
       link: "/destinations",
     },
     {
+      name: "Blogs",
+      link: "/blog",
+    },
+    {
       name: "Contact",
       link: "/contact",
     },

@@ -1,163 +1,141 @@
-import React from 'react';
+"use client"
 
-// Define the structure for a news article's data
-interface Article {
-  id: string;
-  category: string;
-  date: string;
-  title: string;
-  excerpt: string;
-  imageUrl: string;
-  readMoreLink: string;
-  isFeatured?: boolean;
-}
+import { Calendar, Clock, ExternalLink, TrendingUp } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
 
-// Mock data for the news section
-const articlesData: Article[] = [
+const newsItems = [
   {
-    id: '1',
-    isFeatured: true,
-    category: 'Industry Insights',
-    date: 'October 05, 2025',
-    title: 'The Future of AI in Education: A 2025 Perspective',
-    excerpt: 'Artificial Intelligence is no longer a futuristic concept but a present-day reality transforming industries. In education, AI is personalizing learning paths and automating administrative tasks to create a more efficient and effective ecosystem.',
-    imageUrl: 'https://images.pexels.com/photos/7688162/pexels-photo-7688162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    readMoreLink: '#',
+    id: 1,
+    title: "New UK Student Visa Rules Announced",
+    description: "The UK government has announced updated student visa rules that will benefit international students.",
+    date: "2024-01-20",
+    category: "Immigration",
+    source: "BBC News",
+    trending: true
   },
   {
-    id: '2',
-    category: 'Company News',
-    date: 'September 28, 2025',
-    title: 'We\'ve Secured $15M in Series B Funding!',
-    excerpt: 'We are thrilled to announce the successful closing of our Series B funding round, led by top venture capital firms. This investment will fuel our global expansion.',
-    imageUrl: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    readMoreLink: '#',
+    id: 2,
+    title: "University of Oxford Opens New International Office",
+    description: "Oxford University establishes a new office to better serve international students and partnerships.",
+    date: "2024-01-18",
+    category: "University News",
+    source: "Oxford University",
+    trending: false
   },
   {
-    id: '3',
-    category: 'Student Stories',
-    date: 'September 15, 2025',
-    title: 'How Maria Passed Her Exam With a Top Score',
-    excerpt: 'Discover the study techniques and strategies Maria used to achieve a score in the 99th percentile. Her story is an inspiration to students everywhere.',
-    imageUrl: 'https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    readMoreLink: '#',
+    id: 3,
+    title: "Scholarship Program for Nepali Students",
+    description: "New scholarship opportunities specifically designed for students from Nepal studying in the UK.",
+    date: "2024-01-15",
+    category: "Scholarships",
+    source: "THE OFFICIALS",
+    trending: true
   },
-   {
-    id: '4',
-    category: 'Product Updates',
-    date: 'September 02, 2025',
-    title: 'Introducing a New Way to Track Your Progress',
-    excerpt: 'Our latest platform update introduces a dynamic progress tracking dashboard, designed to give you actionable insights into your study habits.',
-    imageUrl: 'https://images.pexels.com/photos/5989933/pexels-photo-5989933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    readMoreLink: '#',
+  {
+    id: 4,
+    title: "UK Universities See Record International Applications",
+    description: "UK universities report a significant increase in international student applications for 2024.",
+    date: "2024-01-12",
+    category: "Education",
+    source: "The Guardian",
+    trending: false
   },
-];
+  {
+    id: 5,
+    title: "New Partnership Agreement with University of Manchester",
+    description: "THE OFFICIALS signs new partnership agreement with University of Manchester for student recruitment.",
+    date: "2024-01-10",
+    category: "Partnerships",
+    source: "THE OFFICIALS",
+    trending: false
+  },
+  {
+    id: 6,
+    title: "International Education Summit 2024",
+    description: "Global education leaders gather to discuss the future of international education.",
+    date: "2024-01-08",
+    category: "Events",
+    source: "Times Higher Education",
+    trending: true
+  }
+]
 
-// --- Reusable Sub-Components ---
-
-// A styled pill for the article category
-const CategoryPill: React.FC<{ category: string }> = ({ category }) => (
-  <span className="inline-flex items-center px-2 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary max-w-fit">
-    {category}
-  </span>
-);
-
-// A styled link for "Read More"
-const ReadMoreLink: React.FC<{ href: string }> = ({ href }) => (
-  <a href={href} className="text-sm font-bold transition-colors text-accent group-hover:text-accent/80">
-    Read More <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">&rarr;</span>
-  </a>
-);
-
-
-// --- Card Components ---
-
-// Card for the main featured article
-const FeaturedArticleCard: React.FC<{ article: Article }> = ({ article }) => (
-  <div className="overflow-hidden transition-all duration-300 border shadow-xl group bg-card rounded-2xl md:flex hover:shadow-2xl border-border">
-    <div className="md:w-1/2">
-      <img 
-        className="object-cover w-full h-64 md:h-full" 
-        src={article.imageUrl} 
-        alt={article.title} 
-      />
-    </div>
-    <div className="flex flex-col justify-center p-8 md:w-1/2">
-      <CategoryPill category={article.category} />
-      <h3 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground">{article.title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{article.date}</p>
-      <p className="mt-4 text-muted-foreground">{article.excerpt}</p>
-      <div className="mt-6">
-        <ReadMoreLink href={article.readMoreLink} />
-      </div>
-    </div>
-  </div>
-);
-
-// Card for the standard articles in the grid
-const StandardArticleCard: React.FC<{ article: Article }> = ({ article }) => (
-  <div className="flex flex-col overflow-hidden transition-all duration-300 border shadow-xl group bg-card rounded-2xl hover:shadow-2xl border-border">
-    <img 
-      className="object-cover w-full h-48" 
-      src={article.imageUrl} 
-      alt={article.title}
-    />
-    <div className="flex flex-col flex-grow p-6">
-      <CategoryPill category={article.category} />
-      <h3 className="mt-3 text-xl font-bold text-foreground">{article.title}</h3>
-      <p className="mt-1 text-xs text-muted-foreground">{article.date}</p>
-      <div className="flex-grow mt-4">
-        <ReadMoreLink href={article.readMoreLink} />
-      </div>
-    </div>
-  </div>
-);
-
-
-// --- Main News Section Component ---
-
-const NewsSection: React.FC = () => {
-  const featuredArticle = articlesData.find((a) => a.isFeatured);
-  const standardArticles = articlesData.filter((a) => !a.isFeatured);
-
+export function NewsSection() {
   return (
-    <section className="py-16 font-sans bg-muted/30 sm:py-24">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center">
-          <h2 className="text-4xl font-extrabold tracking-tight text-foreground">
-            Latest News & Insights
+    <section className="py-20 bg-background">
+      <div className="container px-4 mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            Latest News
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-muted-foreground">
-            Stay updated with the latest trends, stories, and company announcements.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Stay updated with the latest news and developments in international education and university partnerships.
           </p>
         </div>
 
-        {/* Articles Grid */}
-        <div className="mt-12 space-y-12">
-          {/* Featured Article */}
-          {featuredArticle && <FeaturedArticleCard article={featuredArticle} />}
-          
-          {/* Standard Articles Grid */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {standardArticles.map((article) => (
-              <StandardArticleCard key={article.id} article={article} />
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {newsItems.map((news) => (
+            <Card 
+              key={news.id} 
+              className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-border"
+            >
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <Badge 
+                    variant="secondary" 
+                    className="bg-primary/10 text-primary"
+                  >
+                    {news.category}
+                  </Badge>
+                  {news.trending && (
+                    <div className="flex items-center gap-1 text-accent">
+                      <TrendingUp className="w-4 h-4" />
+                      <span className="text-sm font-medium">Trending</span>
+                    </div>
+                  )}
+                </div>
+                
+                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {news.title}
+                </h3>
+                
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                  {news.description}
+                </p>
+                
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-3 h-3" />
+                    <span>{new Date(news.date).toLocaleDateString()}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-3 h-3" />
+                    <span>{news.source}</span>
           </div>
         </div>
         
-        {/* "View All" Button */}
-        <div className="mt-16 text-center">
-          <a
-            href="#"
-            className="inline-block px-8 py-3 text-sm font-bold transition-colors rounded-full shadow-lg bg-primary text-primary-foreground hover:bg-primary/90"
-          >
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                >
+                  Read Full Article
+                  <ExternalLink className="w-3 h-3 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button variant="outline" size="lg" className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
             View All News
-          </a>
+            <ExternalLink className="w-4 h-4" />
+          </Button>
         </div>
       </div>
     </section>
-  );
-};
-
-export default NewsSection;
+  )
+}

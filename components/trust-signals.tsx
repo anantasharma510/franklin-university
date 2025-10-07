@@ -27,7 +27,7 @@ export function TrustSignals() {
 
   const partnerLogos = [
     { name: "BPP University", logo: "/bpp logo.png", website: "https://www.bpp.com/about-bpp/bpp-university" },
-    { name: "University of the West of Scotland (UWS)", logo: "/2- University of the West of Scotland (UWS).jpeg", website: "https://www.uwslondon.ac.uk" },
+    { name: "University of the West of Scotland (UWS)", logo: "/placeholder-logo.png", website: "https://www.uwslondon.ac.uk" },
     { name: "University of Roehampton", logo: "/3- University of Roehampton (1).png", website: "https://www.roehampton.ac.uk" },
     { name: "University of East London", logo: "/4 - University of East London.jpeg", website: "https://www.uel.ac.uk" },
     { name: "University College Birmingham (UCB)", logo: "/5 - University College Birmingham (UCB).jpg", website: "https://www.ucb.ac.uk" },
@@ -36,9 +36,9 @@ export function TrustSignals() {
     { name: "Ravensbourne University London", logo: "/8-Ravensbourne University London.png", website: "https://www.ravensbourne.ac.uk" },
     { name: "University for the Creative Arts (UCA)", logo: "/9- University for the Creative Arts (UCA).png", website: "https://www.uca.ac.uk" },
     { name: "Buckinghamshire New University (BNU)", logo: "/10- Buckinghamshire New University (BNU).png", website: "https://www.bucks.ac.uk" },
-    { name: "Coventry University", logo: "/11- Coventry University.png", website: "https://www.coventry.ac.uk" },
-    { name: "University of Sunderland", logo: "/12- University of Sunderland.png", website: "https://www.sunderland.ac.uk" },
-    { name: "University of West London", logo: "/13- University of West London.png", website: "https://www.uwl.ac.uk" },
+    { name: "Coventry University", logo: "/placeholder-logo.png", website: "https://www.coventry.ac.uk" },
+    { name: "University of Sunderland", logo: "/placeholder-logo.png", website: "https://www.sunderland.ac.uk" },
+    { name: "University of West London", logo: "/westlondon.png", website: "https://www.uwl.ac.uk" },
     { name: "Canterbury Christ Church University", logo: "/14 - Canterbury Christ Church University.png", website: "https://www.canterbury.ac.uk" },
     { name: "University of Chester", logo: "/15 -University of Chester.png", website: "https://www.chester.ac.uk" },
     { name: "Regent College London", logo: "/16- Regent College London.jpg", website: "https://www.regentcollege.london" },
@@ -60,32 +60,52 @@ export function TrustSignals() {
   const secondRow = partnerLogos.slice(14)
 
   function ScrollingRow({ logos, offset = false }: { logos: typeof partnerLogos; offset?: boolean }) {
+    const [isPaused, setIsPaused] = useState(false)
     const duplicatedLogos = [...logos, ...logos, ...logos]
+
+    const handleLogoClick = (website: string) => {
+      // Stop animation by setting paused state
+      setIsPaused(true)
+      // Navigate to the university website
+      window.open(website, '_blank', 'noopener,noreferrer')
+      
+      // Resume animation after 3 seconds
+      setTimeout(() => {
+        setIsPaused(false)
+      }, 3000)
+    }
 
     return (
       <div className="relative py-6 overflow-hidden">
+        {isPaused && (
+          <div className="absolute top-2 right-2 bg-primary/90 text-primary-foreground text-xs px-3 py-1 rounded-full z-20 animate-pulse">
+            Animation paused - Click any logo to visit website
+          </div>
+        )}
         <div
-          className="flex gap-24 animate-scroll-left"
+          className={`flex gap-24 ${isPaused ? 'animate-none' : 'animate-scroll-left'}`}
           style={{
             width: 'max-content',
             marginLeft: offset ? '-24rem' : '0'
           }}
         >
           {duplicatedLogos.map((partner, index) => (
-            <a
+            <div
               key={index}
-              href={`https://${partner.website}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 flex items-center justify-center w-[200px]"
-              title={partner.name}
+              onClick={() => handleLogoClick(partner.website)}
+              className="flex-shrink-0 flex items-center justify-center w-[200px] cursor-pointer transition-all duration-300 hover:scale-110 hover:opacity-90 group relative"
+              title={`Click to visit ${partner.name} website`}
             >
+              <div className="absolute inset-0 bg-primary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="object-contain w-auto h-24"
+                className="object-contain w-auto h-24 relative z-10 transition-all duration-300 group-hover:brightness-110"
               />
-            </a>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                Click to visit website
+              </div>
+            </div>
           ))}
         </div>
       </div>

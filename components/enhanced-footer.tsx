@@ -221,55 +221,83 @@ export function EnhancedFooter() {
             <div className="relative overflow-hidden">
               <div className="flex gap-4 animate-scroll">
                 {[
-                  { name: "LSE", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/London_School_of_Economics_logo.svg/1200px-London_School_of_Economics_logo.svg.png" },
-                  { name: "King's College", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/King%27s_College_London_logo.svg/1200px-King%27s_College_London_logo.svg.png" },
-                  { name: "University of Edinburgh", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/University_of_Edinburgh_logo.svg/1200px-University_of_Edinburgh_logo.svg.png" },
-                  { name: "University of Manchester", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/University_of_Manchester_logo.svg/1200px-University_of_Manchester_logo.svg.png" },
-                  { name: "University of Bristol", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Bristol_logo.svg/1200px-University_of_Bristol_logo.svg.png" },
-                  { name: "University of Warwick", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/University_of_Warwick_logo.svg/1200px-University_of_Warwick_logo.svg.png" },
-                  { name: "University of Glasgow", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/University_of_Glasgow_logo.svg/1200px-University_of_Glasgow_logo.svg.png" },
-                  { name: "University of Birmingham", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Birmingham_logo.svg/1200px-University_of_Birmingham_logo.svg.png" },
-                  { name: "University of Leeds", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/University_of_Leeds_logo.svg/1200px-University_of_Leeds_logo.svg.png" },
-                  { name: "University of Sheffield", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/University_of_Sheffield_logo.svg/1200px-University_of_Sheffield_logo.svg.png" },
-                  { name: "University of Liverpool", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Liverpool_logo.svg/1200px-University_of_Liverpool_logo.svg.png" },
-                  { name: "University of Nottingham", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/University_of_Nottingham_logo.svg/1200px-University_of_Nottingham_logo.svg.png" }
+                  { name: "University of Roehampton", logo: "/3- University of Roehampton (1).png", website: "https://www.roehampton.ac.uk" },
+                  { name: "University of East London", logo: "/4 - University of East London.jpeg", website: "https://www.uel.ac.uk" },
+                  { name: "University College Birmingham (UCB)", logo: "/5 - University College Birmingham (UCB).jpg", website: "https://www.ucb.ac.uk" },
+                  { name: "Ulster University", logo: "/6-Ulster University.png", website: "https://www.ulster.ac.uk" },
+                  { name: "Northumbria University", logo: "/7- Northumbria University.png", website: "https://www.northumbria.ac.uk" },
+                  { name: "Ravensbourne University London", logo: "/8-Ravensbourne University London.png", website: "https://www.ravensbourne.ac.uk" },
+                  { name: "University for the Creative Arts (UCA)", logo: "/9- University for the Creative Arts (UCA).png", website: "https://www.uca.ac.uk" },
+                  { name: "Buckinghamshire New University (BNU)", logo: "/10- Buckinghamshire New University (BNU).png", website: "https://www.bucks.ac.uk" },
+                  { name: "Canterbury Christ Church University", logo: "/14 - Canterbury Christ Church University.png", website: "https://www.canterbury.ac.uk" },
+                  { name: "University of Chester", logo: "/15 -University of Chester.png", website: "https://www.chester.ac.uk" },
+                  { name: "Regent College London", logo: "/16- Regent College London.jpg", website: "https://www.regentcollege.london" },
+                  { name: "University of Wolverhampton", logo: "/17- University of Wolverhampton.png", website: "https://www.wlv.ac.uk" },
+                  { name: "UWE Bristol", logo: "/18- UWE Bristol.jpeg", website: "https://www.uwe.ac.uk" },
+                  { name: "The University of Law", logo: "/19- The University of Law.jpeg", website: "https://www.law.ac.uk" },
+                  { name: "University of Greenwich", logo: "/20- University of Greenwich.png", website: "https://www.gre.ac.uk" },
+                  { name: "London Metropolitan University", logo: "/21- London Metropolitan University.png", website: "https://www.londonmet.ac.uk" },
+                  { name: "Richmond American University London", logo: "/22 - Richmond American University London.jpg", website: "https://www.richmond.ac.uk" },
+                  { name: "Abertay University", logo: "/23- Abertay University.png", website: "https://www.abertay.ac.uk" },
+                  { name: "University of Kent", logo: "/24- University of Kent.jpg", website: "https://www.kent.ac.uk" },
+                  { name: "Edinburgh Napier University", logo: "/25- Edinburgh Napier University.jpeg", website: "https://www.napier.ac.uk" },
+                  { name: "De Montfort University (DMU)", logo: "/26 - De Montfort University (DMU).png", website: "https://www.dmu.ac.uk" },
+                  { name: "Solent University", logo: "/27 - Solent University.png", website: "https://www.solent.ac.uk" },
+                  { name: "University of South Wales", logo: "/28 - University of South Wales.png", website: "https://www.southwales.ac.uk" }
                 ].map((partner, i) => (
-                  <div
+                  <a
                     key={i}
-                    className="bg-background/5 rounded-lg h-20 min-w-[160px] flex items-center justify-center border border-border p-3"
+                    href={partner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white rounded-lg h-20 min-w-[160px] flex items-center justify-center border border-gray-200 p-3 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-accent/50"
                   >
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="object-contain w-auto transition-opacity max-h-12 opacity-60 hover:opacity-90"
+                      className="object-contain w-auto transition-opacity max-h-12 opacity-80 hover:opacity-100"
                     />
-                  </div>
+                  </a>
                 ))}
                 {/* Duplicate for seamless loop */}
                 {[
-                  { name: "LSE", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/London_School_of_Economics_logo.svg/1200px-London_School_of_Economics_logo.svg.png" },
-                  { name: "King's College", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/King%27s_College_London_logo.svg/1200px-King%27s_College_London_logo.svg.png" },
-                  { name: "University of Edinburgh", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/University_of_Edinburgh_logo.svg/1200px-University_of_Edinburgh_logo.svg.png" },
-                  { name: "University of Manchester", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/University_of_Manchester_logo.svg/1200px-University_of_Manchester_logo.svg.png" },
-                  { name: "University of Bristol", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Bristol_logo.svg/1200px-University_of_Bristol_logo.svg.png" },
-                  { name: "University of Warwick", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/University_of_Warwick_logo.svg/1200px-University_of_Warwick_logo.svg.png" },
-                  { name: "University of Glasgow", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/University_of_Glasgow_logo.svg/1200px-University_of_Glasgow_logo.svg.png" },
-                  { name: "University of Birmingham", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Birmingham_logo.svg/1200px-University_of_Birmingham_logo.svg.png" },
-                  { name: "University of Leeds", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/University_of_Leeds_logo.svg/1200px-University_of_Leeds_logo.svg.png" },
-                  { name: "University of Sheffield", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/University_of_Sheffield_logo.svg/1200px-University_of_Sheffield_logo.svg.png" },
-                  { name: "University of Liverpool", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_Liverpool_logo.svg/1200px-University_of_Liverpool_logo.svg.png" },
-                  { name: "University of Nottingham", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/University_of_Nottingham_logo.svg/1200px-University_of_Nottingham_logo.svg.png" }
+                  { name: "University of Roehampton", logo: "/3- University of Roehampton (1).png", website: "https://www.roehampton.ac.uk" },
+                  { name: "University of East London", logo: "/4 - University of East London.jpeg", website: "https://www.uel.ac.uk" },
+                  { name: "University College Birmingham (UCB)", logo: "/5 - University College Birmingham (UCB).jpg", website: "https://www.ucb.ac.uk" },
+                  { name: "Ulster University", logo: "/6-Ulster University.png", website: "https://www.ulster.ac.uk" },
+                  { name: "Northumbria University", logo: "/7- Northumbria University.png", website: "https://www.northumbria.ac.uk" },
+                  { name: "Ravensbourne University London", logo: "/8-Ravensbourne University London.png", website: "https://www.ravensbourne.ac.uk" },
+                  { name: "University for the Creative Arts (UCA)", logo: "/9- University for the Creative Arts (UCA).png", website: "https://www.uca.ac.uk" },
+                  { name: "Buckinghamshire New University (BNU)", logo: "/10- Buckinghamshire New University (BNU).png", website: "https://www.bucks.ac.uk" },
+                  { name: "Canterbury Christ Church University", logo: "/14 - Canterbury Christ Church University.png", website: "https://www.canterbury.ac.uk" },
+                  { name: "University of Chester", logo: "/15 -University of Chester.png", website: "https://www.chester.ac.uk" },
+                  { name: "Regent College London", logo: "/16- Regent College London.jpg", website: "https://www.regentcollege.london" },
+                  { name: "University of Wolverhampton", logo: "/17- University of Wolverhampton.png", website: "https://www.wlv.ac.uk" },
+                  { name: "UWE Bristol", logo: "/18- UWE Bristol.jpeg", website: "https://www.uwe.ac.uk" },
+                  { name: "The University of Law", logo: "/19- The University of Law.jpeg", website: "https://www.law.ac.uk" },
+                  { name: "University of Greenwich", logo: "/20- University of Greenwich.png", website: "https://www.gre.ac.uk" },
+                  { name: "London Metropolitan University", logo: "/21- London Metropolitan University.png", website: "https://www.londonmet.ac.uk" },
+                  { name: "Richmond American University London", logo: "/22 - Richmond American University London.jpg", website: "https://www.richmond.ac.uk" },
+                  { name: "Abertay University", logo: "/23- Abertay University.png", website: "https://www.abertay.ac.uk" },
+                  { name: "University of Kent", logo: "/24- University of Kent.jpg", website: "https://www.kent.ac.uk" },
+                  { name: "Edinburgh Napier University", logo: "/25- Edinburgh Napier University.jpeg", website: "https://www.napier.ac.uk" },
+                  { name: "De Montfort University (DMU)", logo: "/26 - De Montfort University (DMU).png", website: "https://www.dmu.ac.uk" },
+                  { name: "Solent University", logo: "/27 - Solent University.png", website: "https://www.solent.ac.uk" },
+                  { name: "University of South Wales", logo: "/28 - University of South Wales.png", website: "https://www.southwales.ac.uk" }
                 ].map((partner, i) => (
-                  <div
+                  <a
                     key={`dup-${i}`}
-                    className="bg-background/5 rounded-lg h-20 min-w-[160px] flex items-center justify-center border border-border p-3"
+                    href={partner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white rounded-lg h-20 min-w-[160px] flex items-center justify-center border border-gray-200 p-3 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-accent/50"
                   >
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="object-contain w-auto transition-opacity max-h-12 opacity-60 hover:opacity-90"
+                      className="object-contain w-auto transition-opacity max-h-12 opacity-80 hover:opacity-100"
                     />
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>

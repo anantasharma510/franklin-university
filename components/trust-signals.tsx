@@ -26,36 +26,38 @@ export function TrustSignals() {
   }, [])
 
   const partnerLogos = [
-    { name: "BPP University", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "bpp.com/about-bpp/bpp-university" },
-    { name: "University of the West of Scotland", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "uwslondon.ac.uk" },
-    { name: "University of Roehampton", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "roehampton.ac.uk" },
-    { name: "University of East London", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "uel.ac.uk" },
-    { name: "University College Birmingham", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "ucb.ac.uk" },
-    { name: "Ulster University", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "ulster.ac.uk" },
-    { name: "Northumbria University", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "northumbria.ac.uk" },
-    { name: "Ravensbourne University London", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "ravensbourne.ac.uk" },
-    { name: "University for the Creative Arts", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "uca.ac.uk" },
-    { name: "Buckinghamshire New University", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "bucks.ac.uk" },
-    { name: "Coventry University", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "coventry.ac.uk" },
-    { name: "University of Sunderland", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "sunderland.ac.uk" },
-    { name: "University of West London", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "uwl.ac.uk" },
-    { name: "Canterbury Christ Church University", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "canterbury.ac.uk" },
-    { name: "University of Chester", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "chester.ac.uk" },
-    { name: "University of Wolverhampton", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "wlv.ac.uk" },
-    { name: "UWE Bristol", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "uwe.ac.uk" },
-    { name: "The University of Law", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "law.ac.uk" },
-    { name: "University of Greenwich", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "gre.ac.uk" },
-    { name: "London Metropolitan University", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "londonmet.ac.uk" },
-    { name: "Abertay University", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "abertay.ac.uk" },
-    { name: "University of Kent", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "kent.ac.uk" },
-    { name: "Edinburgh Napier University", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "napier.ac.uk" },
-    { name: "De Montfort University", logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "dmu.ac.uk" },
-    { name: "Solent University", logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "solent.ac.uk" },
-    { name: "University of South Wales", logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80", website: "southwales.ac.uk" },
+    { name: "BPP University", logo: "/bpp logo.png", website: "https://www.bpp.com/about-bpp/bpp-university" },
+    { name: "University of the West of Scotland (UWS)", logo: "/2- University of the West of Scotland (UWS).jpeg", website: "https://www.uwslondon.ac.uk" },
+    { name: "University of Roehampton", logo: "/3- University of Roehampton (1).png", website: "https://www.roehampton.ac.uk" },
+    { name: "University of East London", logo: "/4 - University of East London.jpeg", website: "https://www.uel.ac.uk" },
+    { name: "University College Birmingham (UCB)", logo: "/5 - University College Birmingham (UCB).jpg", website: "https://www.ucb.ac.uk" },
+    { name: "Ulster University", logo: "/6-Ulster University.png", website: "https://www.ulster.ac.uk" },
+    { name: "Northumbria University", logo: "/7- Northumbria University.png", website: "https://www.northumbria.ac.uk" },
+    { name: "Ravensbourne University London", logo: "/8-Ravensbourne University London.png", website: "https://www.ravensbourne.ac.uk" },
+    { name: "University for the Creative Arts (UCA)", logo: "/9- University for the Creative Arts (UCA).png", website: "https://www.uca.ac.uk" },
+    { name: "Buckinghamshire New University (BNU)", logo: "/10- Buckinghamshire New University (BNU).png", website: "https://www.bucks.ac.uk" },
+    { name: "Coventry University", logo: "/11- Coventry University.png", website: "https://www.coventry.ac.uk" },
+    { name: "University of Sunderland", logo: "/12- University of Sunderland.png", website: "https://www.sunderland.ac.uk" },
+    { name: "University of West London", logo: "/13- University of West London.png", website: "https://www.uwl.ac.uk" },
+    { name: "Canterbury Christ Church University", logo: "/14 - Canterbury Christ Church University.png", website: "https://www.canterbury.ac.uk" },
+    { name: "University of Chester", logo: "/15 -University of Chester.png", website: "https://www.chester.ac.uk" },
+    { name: "Regent College London", logo: "/16- Regent College London.jpg", website: "https://www.regentcollege.london" },
+    { name: "University of Wolverhampton", logo: "/17- University of Wolverhampton.png", website: "https://www.wlv.ac.uk" },
+    { name: "UWE Bristol", logo: "/18- UWE Bristol.jpeg", website: "https://www.uwe.ac.uk" },
+    { name: "The University of Law", logo: "/19- The University of Law.jpeg", website: "https://www.law.ac.uk" },
+    { name: "University of Greenwich", logo: "/20- University of Greenwich.png", website: "https://www.gre.ac.uk" },
+    { name: "London Metropolitan University", logo: "/21- London Metropolitan University.png", website: "https://www.londonmet.ac.uk" },
+    { name: "Richmond American University London", logo: "/22 - Richmond American University London.jpg", website: "https://www.richmond.ac.uk" },
+    { name: "Abertay University", logo: "/23- Abertay University.png", website: "https://www.abertay.ac.uk" },
+    { name: "University of Kent", logo: "/24- University of Kent.jpg", website: "https://www.kent.ac.uk" },
+    { name: "Edinburgh Napier University", logo: "/25- Edinburgh Napier University.jpeg", website: "https://www.napier.ac.uk" },
+    { name: "De Montfort University (DMU)", logo: "/26 - De Montfort University (DMU).png", website: "https://www.dmu.ac.uk" },
+    { name: "Solent University", logo: "/27 - Solent University.png", website: "https://www.solent.ac.uk" },
+    { name: "University of South Wales", logo: "/28 - University of South Wales.png", website: "https://www.southwales.ac.uk" },
   ]
 
-  const firstRow = partnerLogos.slice(0, 12)
-  const secondRow = partnerLogos.slice(12)
+  const firstRow = partnerLogos.slice(0, 14)
+  const secondRow = partnerLogos.slice(14)
 
   function ScrollingRow({ logos, offset = false }: { logos: typeof partnerLogos; offset?: boolean }) {
     const duplicatedLogos = [...logos, ...logos, ...logos]
@@ -132,7 +134,7 @@ export function TrustSignals() {
             className={`text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
             style={{ animationDelay: "0.3s" }}
           >
-            Over 35+ universities, colleges, and pathway providers across the UK trust THE OFFICIALS
+            Over 28+ universities, colleges, and pathway providers across the UK trust THE OFFICIALS
             for premium student recruitment and partnership services.
           </p>
         </div>
